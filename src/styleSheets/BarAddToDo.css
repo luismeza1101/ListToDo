@@ -1,0 +1,16 @@
+.data{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+}
+.data__input{
+    border-radius: 5px;
+    padding: 3px 7px;
+    border: 1px solid #fff;
+    background-color: #1f1f1fbb;
+    color: #fff;
+    font-size: 20px;
+    min-width: 500px;
+}

@@ -1,0 +1,23 @@
+.tag {
+    position: relative;
+    background-color: #007BFF; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño del texto */
+    text-align: center; /* Centrar el texto */
+    border-radius: 4px; /* Bordes redondeados */
+    display: inline-block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+/* Triángulo */
+.tag::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    transform: translateY(-50%);
+    border-right: 10px solid #007BFF; /* Color igual al fondo del div */
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}

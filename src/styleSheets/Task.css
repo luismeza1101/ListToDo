@@ -1,0 +1,18 @@
+.task{
+    background-color: aliceblue;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 5px 5px 7px;
+}
+.task__text{
+    margin: auto 0;
+}
+.buttons{
+    display: flex;
+    gap: 7px;
+}
+.btn{
+    font-size: 20px;
+}
