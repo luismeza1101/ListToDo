@@ -3,14 +3,14 @@ import './App.css'
 import BarAddToDo from './components/BarAddToDo'
 import TaskCard from './components/TaskCard'
 import { initialState, reducer } from './fuctions'
-import { Task } from './types'
+import { Tags, Task } from './types'
 
 
 function App() {
 
   const [tasksState, dispatch] = useReducer(reducer, initialState);
 
-  const addTask = (infoTask: string, infoTag: string) => {
+  const addTask = (infoTask: string, infoTag: Tags) => {
     const newTask: Task = {
       info: infoTask,
       id: crypto.randomUUID(),

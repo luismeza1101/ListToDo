@@ -1,10 +1,11 @@
 import { FiXCircle, FiEdit } from "react-icons/fi";
 import "../styleSheets/Task.css";
 import Tag from "./Tag";
+import { Tags } from "../types";
 
 interface Props {
   infoTask : string
-  infoTag : string
+  infoTag : Tags
 }
 
 const TaskCard: React.FC<Props> = ({infoTask, infoTag}) => {

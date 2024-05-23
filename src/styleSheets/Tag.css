@@ -1,6 +1,5 @@
 .tag {
     position: relative;
-    background-color: #007BFF; /* Color de fondo */
     color: white; /* Color del texto */
     padding: 10px 20px; /* Espaciado interno */
     font-size: 16px; /* Tamaño del texto */
@@ -17,7 +16,42 @@
     top: 50%;
     right: 100%;
     transform: translateY(-50%);
-    border-right: 10px solid #007BFF; /* Color igual al fondo del div */
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
+}
+.importan{
+    background-color: #f00;
+}
+.importan::before{
+    border-right: 10px solid #f00;
+}
+.home{
+    background-color: #ff5100;
+}
+.home::before{
+    border-right: 10px solid #ff5100;
+}
+.work{
+    background-color: #ffcc00;
+}
+.work::before{
+    border-right: 10px solid #ffcc00;
+}
+.personal{
+    background-color: #019501;
+}
+.personal::before{
+    border-right: 10px solid #019501;
+}
+.proyects{
+    background-color: #0000ff;
+}
+.proyects::before{
+    border-right: 10px solid #0000ff;
+}
+.favors{
+    background-color: #f457f4;
+}
+.favors::before{
+    border-right: 10px solid #f457f4;
 }

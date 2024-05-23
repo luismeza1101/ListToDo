@@ -1,6 +1,8 @@
+export type Tags = 'Select the tag' | 'Importan' | 'Home' | 'Work' |'Personal' | 'Proyects' | 'Favors';
+
 export interface Task {
     info: string
     id: string
-    tag: string
+    tag: Tags
     edit: boolean
 }
