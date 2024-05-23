@@ -6,16 +6,18 @@ import { Tags } from "../types";
 interface Props {
   infoTask : string
   infoTag : Tags
+  infoID : string
+  removeTask : (id:string) => void
 }
 
-const TaskCard: React.FC<Props> = ({infoTask, infoTag}) => {
+const TaskCard: React.FC<Props> = ({infoTask, infoTag, removeTask, infoID}) => {
   return (
     <section className="task">
       <p className="task__text">{infoTask}</p>
       <div className="buttons">
         <Tag infoTag={infoTag}/>
         <button className="btn btn-info"><FiEdit /></button>
-        <button className="btn btn-danger"><FiXCircle /></button>
+        <button className="btn btn-danger" onClick={() => removeTask(infoID)}><FiXCircle /></button>
       </div>
     </section>
   );

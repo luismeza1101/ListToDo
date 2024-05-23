@@ -12,11 +12,10 @@ type Action =
 export const reducer = (state: typeof initialState, action: Action) => {
     switch (action.type) {
         case 'add':
-            
             return {listTasks: [...state.listTasks, action.payload]};
         case 'remove':
-            
-            return state;
+            const newListTask = state.listTasks.filter(task => task.id !== action.payload.id)
+            return {listTasks : [...newListTask]};
         case 'editable':
             
             return state;

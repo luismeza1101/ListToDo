@@ -33,7 +33,7 @@ function App() {
       <BarAddToDo addTask={addTask}/>
       <ul className='list-group list-tasks'>
           {tasksState.listTasks.map(taskUpdate => (
-            <TaskCard key={taskUpdate.id} infoTask={taskUpdate.info} infoTag={taskUpdate.tag}/>
+            <TaskCard key={taskUpdate.id} infoTask={taskUpdate.info} infoTag={taskUpdate.tag} removeTask={removeTask} infoID={taskUpdate.id}/>
           ))}
       </ul>
     </div>
