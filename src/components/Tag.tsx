@@ -1,8 +1,13 @@
 import '../styleSheets/Tag.css'
-const Tag = () => {
+
+interface Props {
+  infoTag: string
+}
+
+const Tag: React.FC<Props> = ({infoTag}) => {
   return (
     <div className="tag">
-      sdfoh
+      {infoTag}
     </div>
   )
 }
