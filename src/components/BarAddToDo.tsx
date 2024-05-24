@@ -21,7 +21,6 @@ const BarAddToDo: React.FC<Props> = ({ addTask }) => {
     } else {
       addTask(infoTask.current!.value, valueTag);
       infoTask.current!.value = "";
-      setValueTag('Select the tag')
     }
   };
 

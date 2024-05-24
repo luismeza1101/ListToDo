@@ -16,3 +16,9 @@
 .btn{
     font-size: 20px;
 }
+.form-control{
+    max-width: 60%;
+}
+.buttons .update{
+    font-size: 14px;
+}
