@@ -9,3 +9,9 @@
     background-color: #434343;
     padding: 10px;
 }
+.list-tasks__title{
+    color: #fff;
+    text-align: start;
+    margin-left: 10px;
+    font-size: 1.5rem;
+}

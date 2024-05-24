@@ -1,5 +1,5 @@
 import { FiXCircle, FiEdit } from "react-icons/fi";
-import "../styleSheets/Task.css";
+import "../styleSheets/TaskCard.css";
 import Tag from "./Tag";
 import { Tags } from "../types";
 import { useEffect, useRef, useState } from "react";

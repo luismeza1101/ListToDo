@@ -1,7 +1,15 @@
-import { Task } from "./types"
+import { TagsFilter, Task } from "./types"
 
-export const initialState : {listTasks : Task[]} = {
-    listTasks: []
+interface State {
+    listTasks: Task[],
+    filterTasks : Task[]
+    filterTag: TagsFilter
+}
+
+export const initialState : State = {
+    listTasks: [],
+    filterTasks: [],
+    filterTag: 'All'
 }
 
 type Action = 
@@ -9,19 +17,50 @@ type Action =
     |{type: 'remove'; payload: {id: string}}
     |{type: 'editable'; payload: {id: string}}
     |{type: 'updateTask'; payload: {id: string, info: string}}
+    |{type: 'filter'; payload: {tag: TagsFilter}} 
 
-export const reducer = (state: typeof initialState, action: Action) => {
+export const reducer = (state: State, action: Action) => {
     switch (action.type) {
         case 'add':
-            return {listTasks: [...state.listTasks, action.payload]};
+            return {
+                ...state,
+                listTasks: [...state.listTasks, action.payload],
+                filterTasks: [...state.listTasks, action.payload].filter(task => {
+                    state.filterTag == 'All' ? true : task.tag == state.filterTag
+                })
+            };
         case 'remove':
             const newListTask = state.listTasks.filter(task => task.id !== action.payload.id)
-            return {listTasks : [...newListTask]};
+            return {
+                ...state,
+                listTasks : newListTask,
+                filterTasks : newListTask.filter(task => {
+                    state.filterTag == 'All' ? true : task.tag == state.filterTag
+                })
+            };
         case 'editable':
-            return {listTasks : state.listTasks.map(task => task.id == action.payload.id ? {...task, edit: !task.edit} : task )};        
+            return {
+                ...state,
+                listTasks : state.listTasks.map(task => task.id == action.payload.id ? {...task, edit: !task.edit} : task ),
+                filterTasks: state.filterTasks.map(task => task.id == action.payload.id ? {...task, edit: !task.edit} : task )
+            };        
         case 'updateTask':
             const newListTasks = state.listTasks.map(task => task.id == action.payload.id ? {...task, info: action.payload.info, edit: !task.edit} : task)
-            return {listTasks : [...newListTasks]}
+            return {
+                ...state,
+                listTasks : newListTasks,
+                filterTasks: newListTasks.filter(task => {
+                    state.filterTag == 'All' ? true : task.tag == state.filterTag
+                })
+            }
+        case 'filter':
+            return{
+                ...state,
+                filterTag: action.payload.tag,
+                filterTasks: state.listTasks.filter(task => {
+                    state.filterTag == 'All' ? true : task.tag == action.payload.tag
+                })
+            }
         default:
             return state
     }
