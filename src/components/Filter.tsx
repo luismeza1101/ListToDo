@@ -10,12 +10,11 @@ const Filter: React.FC<Props> = ({filterTasks}) => {
 
     const [filter, setFilter] = useState<TagsFilter>('All');
 
-
   return (
     <section className="filter">
       <select className="form-select" aria-label="Default select example" onChange={evt => setFilter(evt.target.value as TagsFilter)}>
         <option value="All">All</option>
-        <option value="Important">Important</option>
+        <option value="Importan">Importan</option>
         <option value="Home">Home</option>
         <option value="Work">Work</option>
         <option value="Personal">Personal</option>

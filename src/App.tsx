@@ -35,13 +35,23 @@ function App() {
     dispatch({type:'filter', payload: { tag }})
   }
 
+  const handleFilter = () => {
+    let results: Task[] = []
+    if(tasksState.filterTag == 'All'){
+      results = tasksState.listTasks
+    } else {
+      results = tasksState.listTasks.filter(task => task.tag === tasksState.filterTag)
+    }
+    return results;
+  }
+
   return (
     <div className="container text-center hero">
       <BarAddToDo addTask={addTask} />
       <Filter filterTasks={filterTasks}/>
       <ul className="list-group list-tasks">
         <p className="list-tasks__title">Tasks to do :</p>
-        {tasksState.listTasks.map((taskUpdate) => (
+        {handleFilter().map((taskUpdate) => (
           <TaskCard
             key={taskUpdate.id}
             infoTask={taskUpdate.info}
