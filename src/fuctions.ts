@@ -25,18 +25,14 @@ export const reducer = (state: State, action: Action) => {
             return {
                 ...state,
                 listTasks: [...state.listTasks, action.payload],
-                filterTasks: [...state.listTasks, action.payload].filter(task => {
-                    state.filterTag == 'All' ? true : task.tag == state.filterTag
-                })
+                filterTasks: [...state.listTasks, action.payload]
             };
         case 'remove':
             const newListTask = state.listTasks.filter(task => task.id !== action.payload.id)
             return {
                 ...state,
                 listTasks : newListTask,
-                filterTasks : newListTask.filter(task => {
-                    state.filterTag == 'All' ? true : task.tag == state.filterTag
-                })
+                filterTasks : newListTask
             };
         case 'editable':
             return {
@@ -49,17 +45,13 @@ export const reducer = (state: State, action: Action) => {
             return {
                 ...state,
                 listTasks : newListTasks,
-                filterTasks: newListTasks.filter(task => {
-                    state.filterTag == 'All' ? true : task.tag == state.filterTag
-                })
+                filterTasks: newListTasks
             }
         case 'filter':
             return{
                 ...state,
                 filterTag: action.payload.tag,
-                filterTasks: state.listTasks.filter(task => {
-                    state.filterTag == 'All' ? true : task.tag == action.payload.tag
-                })
+                filterTasks: state.listTasks.filter(task => task.tag == action.payload.tag ? task : null)
             }
         default:
             return state
