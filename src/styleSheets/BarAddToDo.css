@@ -14,3 +14,12 @@
     font-size: 20px;
     min-width: 400px;
 }
+.btns-add{
+    display: flex;
+    gap: 10px;
+}
+@media screen and (max-width: 580px){
+    .data{
+        flex-direction: column;
+    }
+}

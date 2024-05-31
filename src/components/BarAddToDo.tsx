@@ -17,7 +17,7 @@ const BarAddToDo: React.FC<Props> = ({ addTask }) => {
   
   const handleTask = () => {
     if ((infoTask.current?.value == "") || (valueTag == 'Select the tag')) {
-      alert("Debe completar los espacios en blanco");
+      alert("Fill in all the blanks");
     } else {
       addTask(infoTask.current!.value, valueTag);
       infoTask.current!.value = "";
@@ -36,22 +36,24 @@ const BarAddToDo: React.FC<Props> = ({ addTask }) => {
           className="data__input"
           ref={infoTask}
         />
-        <div className="btn-group dropend">
-          <select className="form-select" aria-label="Default select example" onChange={handleChange}>
-            <option selected disabled>Select the tag</option>
-            <option value="Importan">Importan</option>
-            <option value="Home">Home</option>
-            <option value="Work">Work</option>
-            <option value="Personal">Personal</option>
-            <option value="Proyects">Proyects</option>
-            <option value="Favors">Favors</option>
-          </select>
+        <div className="btns-add">
+          <div className="btn-group dropend">
+            <select className="form-select" aria-label="Default select example" onChange={handleChange}>
+              <option selected disabled>Select the tag</option>
+              <option value="Importan">Importan</option>
+              <option value="Home">Home</option>
+              <option value="Work">Work</option>
+              <option value="Personal">Personal</option>
+              <option value="Proyects">Proyects</option>
+              <option value="Favors">Favors</option>
+            </select>
+          </div>
+          <button
+            className="data__btn btn btn-primary"
+            onClick={() => handleTask()}>
+            Add
+          </button>
         </div>
-        <button
-          className="data__btn btn btn-primary"
-          onClick={() => handleTask()}>
-          Add
-        </button>
       </div>
     </section>
   );

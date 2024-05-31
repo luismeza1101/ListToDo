@@ -6,7 +6,7 @@ interface State {
 }
 
 export const initialState : State = {
-    listTasks: [],
+    listTasks: JSON.parse(localStorage.getItem('tasks') || '[]'),
     filterTag: 'All'
 }
 

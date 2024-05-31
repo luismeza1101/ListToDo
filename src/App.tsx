@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import "./App.css";
 import BarAddToDo from "./components/BarAddToDo";
 import TaskCard from "./components/TaskCard";
@@ -44,6 +44,9 @@ function App() {
     }
     return results;
   }
+  useEffect(() => {
+   localStorage.setItem('tasks', JSON.stringify(tasksState.listTasks))
+  }, [tasksState.listTasks])
 
   return (
     <div className="container text-center hero">
