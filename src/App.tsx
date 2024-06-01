@@ -48,10 +48,6 @@ function App() {
    localStorage.setItem('tasks', JSON.stringify(tasksState.listTasks))
   }, [tasksState.listTasks])
 
-  useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(tasksState.listTasks))
-  }, [tasksState.listTasks])
-
   return (
     <div className="container text-center hero">
       <BarAddToDo addTask={addTask} />
